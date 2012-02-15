@@ -26,7 +26,7 @@ fi
 # if you are 5, then you are on your own as this may not get the right libs, 
 # but the build *should* function
 
-if [ $DIST != 'Fedora' ]
+if [ "$DIST" != 'Fedora' ]
 	then 
 	echo 'Installing the EPEL repo.' 
 	/bin/rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm

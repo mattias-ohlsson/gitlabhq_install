@@ -5,6 +5,8 @@ git clone git://github.com/gitlabhq/gitlabhq.git
 cd gitlabhq
 bundle install --without development test
 
+sudo gem install charlock_holmes
+
 #Create new database.yml file if it doesn't exist yet
 cp -i config/database.yml.example config/database.yml
 

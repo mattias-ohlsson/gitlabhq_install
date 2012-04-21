@@ -230,6 +230,9 @@ cd /var/www/gitlabhq
 
 source /etc/profile.d/rvm.sh
 
+# Use SQLite
+cp config/database.yml.sqlite config/database.yml
+
 rvm all do rake db:setup RAILS_ENV=production
 rvm all do rake db:seed_fu RAILS_ENV=production
 

@@ -246,8 +246,19 @@ rvm all do rake db:seed_fu RAILS_ENV=production
 export PASSENGER_VERSION=`find /usr/local/rvm/gems/$RUBY_VERSION/gems -type d -name "passenger*" | cut -d '-' -f 4`
 
 # Shove everything in to a vhost - I hate Passenger config in the main, it gets in my way
-echo -e "<VirtualHost *:80>\nServerName `hostname --fqdn`\nDocumentRoot /var/www/gitlabhq/public\nLoadModule passenger_module /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/ext/apache2/mod_passenger.so\n   PassengerRoot /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-3.0.11\nPassengerRuby /usr/local/rvm/wrappers/$RUBY_VERSION/ruby\n<Directory /var/www/gitlabhq/public>\nAllowOverride all\nOptions -MultiViews\n</Directory>\n</VirtualHost>" > /etc/httpd/conf.d/gitlabhq.conf
-
+cat > /etc/httpd/conf.d/gitlabhq.conf << EOF
+<VirtualHost *:80>
+    ServerName `hostname --fqdn`
+    DocumentRoot /var/www/gitlabhq/public
+    LoadModule passenger_module /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/ext/apache2/mod_passenger.so
+    PassengerRoot /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-3.0.11
+    PassengerRuby /usr/local/rvm/wrappers/$RUBY_VERSION/ruby
+    <Directory /var/www/gitlabhq/public>
+        AllowOverride all
+        Options -MultiViews
+    </Directory>
+</VirtualHost>
+EOF
 
 # Ensure that apache owns all of gitlabhq - No shallower
 chown -R apache:apache /var/www/gitlabhq

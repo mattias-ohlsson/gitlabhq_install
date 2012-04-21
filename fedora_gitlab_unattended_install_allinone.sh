@@ -196,7 +196,7 @@ pip install pygments
 
 echo ' Installing GitlabHQ' 
 
-cd /var/www && git clone git@github.com:owindsor/gitlabhq.git
+cd /var/www && git clone https://github.com/owindsor/gitlabhq.git
 
 # Lets change to the git user, source the rvm crud again and execute bundle
 

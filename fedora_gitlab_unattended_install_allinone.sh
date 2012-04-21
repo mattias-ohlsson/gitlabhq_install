@@ -68,7 +68,8 @@ libicu-devel \
 gitolite \
 redis \
 sudo \
-postfix
+postfix \
+mysql-devel
 
 # Lets get some user and other general Admin shite out of the way.
 

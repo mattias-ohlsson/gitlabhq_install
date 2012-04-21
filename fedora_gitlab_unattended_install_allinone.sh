@@ -234,7 +234,7 @@ source /etc/profile.d/rvm.sh
 cp config/database.yml.sqlite config/database.yml
 
 # Rename config files
-sudo -u gitlab cp config/gitlab.yml.example config/gitlab.yml
+cp config/gitlab.yml.example config/gitlab.yml
 
 rvm all do rake db:setup RAILS_ENV=production
 rvm all do rake db:seed_fu RAILS_ENV=production

@@ -260,6 +260,11 @@ cat > /etc/httpd/conf.d/gitlabhq.conf << EOF
 </VirtualHost>
 EOF
 
+# Enable virtual hosts in httpd
+cat > /etc/httpd/conf.d/enable-virtual-hosts.conf << EOF
+NameVirtualHost *:80
+EOF
+
 # Ensure that apache owns all of gitlabhq - No shallower
 chown -R apache:apache /var/www/gitlabhq
 

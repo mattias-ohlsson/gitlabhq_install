@@ -251,7 +251,7 @@ cat > /etc/httpd/conf.d/gitlabhq.conf << EOF
     ServerName `hostname --fqdn`
     DocumentRoot /var/www/gitlabhq/public
     LoadModule passenger_module /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/ext/apache2/mod_passenger.so
-    PassengerRoot /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-3.0.11
+    PassengerRoot /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION
     PassengerRuby /usr/local/rvm/wrappers/$RUBY_VERSION/ruby
     <Directory /var/www/gitlabhq/public>
         AllowOverride all

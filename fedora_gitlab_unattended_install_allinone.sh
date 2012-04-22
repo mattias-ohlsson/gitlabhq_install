@@ -252,7 +252,7 @@ export PASSENGER_VERSION=`find /usr/local/rvm/gems/$RUBY_VERSION/gems -type d -n
 # Shove everything in to a vhost - I hate Passenger config in the main, it gets in my way
 cat > /etc/httpd/conf.d/gitlabhq.conf << EOF
 <VirtualHost *:80>
-    ServerName `hostname --fqdn`
+    ServerName $GL_HOSTNAME
     DocumentRoot /var/www/gitlabhq/public
     LoadModule passenger_module /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION/ext/apache2/mod_passenger.so
     PassengerRoot /usr/local/rvm/gems/$RUBY_VERSION/gems/passenger-$PASSENGER_VERSION

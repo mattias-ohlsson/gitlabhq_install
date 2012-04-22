@@ -240,6 +240,9 @@ cp config/database.yml.sqlite config/database.yml
 # Rename config files
 cp config/gitlab.yml.example config/gitlab.yml
 
+# Change gitlabhq hostname to GL_HOSTNAME
+sed -i "s/host: localhost/host: $GL_HOSTNAME/g" config/gitlab.yml
+
 rvm all do rake db:setup RAILS_ENV=production
 rvm all do rake db:seed_fu RAILS_ENV=production
 

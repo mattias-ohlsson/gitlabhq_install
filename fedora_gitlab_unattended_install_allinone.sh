@@ -2,6 +2,10 @@
 
 # This script has been customised based on a CENTOS 6.2 box. We need the EPEL repos for this to work as required.
 
+# Define the public hostname
+
+export GL_HOSTNAME=$HOSTNAME
+
 # Define the version of ruby and the environment that we are installing for
 
 export RUBY_VERSION=ruby-1.9.2-p290

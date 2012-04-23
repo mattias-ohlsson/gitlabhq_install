@@ -84,7 +84,7 @@ echo 'Creating the git user'
 
 # Create our ssh key as the git user - lets not mess with this too much
 
-su - git -c 'ssh-keygen -q -N "" -t rsa -f .ssh/id_rsa'
+su - git -c 'ssh-keygen -q -N "" -t rsa -f ~/.ssh/id_rsa'
 
 # Ensure correct ownership
 

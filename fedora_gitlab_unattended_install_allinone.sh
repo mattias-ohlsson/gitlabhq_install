@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/bash
 
 # This script has been customised based on a CENTOS 6.2 box. We need the EPEL repos for this to work as required.
 
